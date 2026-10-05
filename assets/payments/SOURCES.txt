@@ -1,0 +1,4 @@
+Visa and Mastercard: https://github.com/datatrans/payment-logos (SVG viewBox padding adjusted).
+Mir: https://github.com/aaronfagan/svg-credit-card-payment-icons/blob/main/flat/mir.svg
+Korti Milli: https://npm.tj/_nuxt/img/logo.53f0bee.svg
+Brand marks belong to their respective owners. Showing a brand does not confirm payment acceptance; the page asks users to check methods at Tutu checkout.
