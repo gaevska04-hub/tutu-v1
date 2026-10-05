@@ -1,0 +1,223 @@
+/* Consistent spacing and interaction states for the landing. */
+:root {--focus-ring:#ffda83}
+.section {padding:44px 0}
+.section-head {margin-bottom:28px}
+.section-head h2,.hotel-area>.wrap>h2,.faq-area h2 {font-size:42px;line-height:1.15;letter-spacing:-.7px}
+button,a,input,select {touch-action:manipulation}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible {outline:3px solid var(--focus-ring);outline-offset:3px}
+.search-grid>.field:focus-within {box-shadow:inset 0 0 0 2px #7027ed;z-index:7}
+.search-grid>.field select,.date-trigger,.passenger-trigger {min-height:30px}
+.field label {margin-bottom:4px}
+.header .select {min-height:40px;padding:8px 12px;border-radius:10px}
+.nav a {padding:8px 0}.nav a:hover {text-decoration:underline;text-underline-offset:5px}
+.btn,.tab-icon,.fare-card,.carousel-button {transition:background-color .16s ease,box-shadow .16s ease,transform .16s ease}
+.btn-primary:hover {background:#e95400}
+.btn-white:hover {background:#f1eaff}
+.tab:hover .tab-icon {background:#ffffff26}.tab.active:hover .tab-icon {background:#6420dc}
+.fare-widget {padding:28px;border-radius:28px}
+.fare-widget .section-head p {font-size:18px;max-width:710px;line-height:1.5}
+.fare-cards {scroll-padding:2px;scrollbar-width:thin;scrollbar-color:#c6b2ed transparent;padding:4px 2px 14px}
+.fare-card {padding:8px 8px 20px;text-decoration:none;border-radius:22px}
+.fare-card:hover {box-shadow:0 8px 24px #35215b20;background:#fff}
+.fare-card:focus-visible {outline-offset:-3px}
+.fare-image {height:168px}.fare-image img {border-radius:15px}
+.fare-copy h3 {font-size:22px;min-height:60px;line-height:1.3}
+.route-action {display:block;min-height:24px;margin-top:24px;font-weight:600}
+.fare-controls {display:flex;align-items:center;justify-content:space-between;margin-top:16px;gap:16px}
+.fare-controls>a {font-size:15px;font-weight:500;text-decoration:none}
+.fare-controls>a:hover {text-decoration:underline}
+.carousel-buttons {display:flex;gap:8px}
+.carousel-button {width:44px;height:44px;display:grid;place-items:center;border:1px solid #ffffff80;border-radius:50%;background:#ffffff;color:#7027ed;font-size:24px}
+.carousel-button:hover:not(:disabled) {background:#eee5ff}
+.carousel-button:disabled {background:#ffffff40;color:#ffffff90;cursor:default}
+.payment-check {min-height:44px;cursor:pointer;gap:10px}
+.payment-check input {appearance:none;-webkit-appearance:none;width:22px;height:22px;border:2px solid #ffffffd9;border-radius:6px;background:#ffffff20;flex:none;display:grid;place-content:center}
+.payment-check input:checked {background:#fff;border-color:#fff}
+.payment-check input:checked:after {content:'';width:10px;height:6px;border-left:2px solid #7027ed;border-bottom:2px solid #7027ed;transform:translateY(-1px) rotate(-45deg)}
+.calendar .cal-nav {min-height:44px}.calendar .day {min-height:40px}
+.faq details {border:1px solid #eeeaf5}.faq details[open] {background:#f6f2ff;border-color:#d3c2f2}
+.review {border:1px solid #eeeaf5}
+@media(max-width:650px){
+ .section {padding:30px 0}.section-head {margin-bottom:20px}
+ .section-head h2,.hotel-area>.wrap>h2,.faq-area h2 {font-size:30px;letter-spacing:-.3px}
+ .header .select {min-height:36px;padding:6px;max-width:none}
+ .fare-widget {padding:20px 16px;border-radius:24px}
+ .fare-widget .section-head p {font-size:16px}.fare-widget .section-head>.btn {display:none}
+ .fare-cards {margin-right:-16px;padding-right:16px;gap:12px}
+ .fare-card {flex-basis:min(300px,calc(100vw - 76px));min-width:0;width:auto}
+ .fare-image {height:145px}.fare-copy {padding:14px 8px 0}
+ .fare-copy h3 {font-size:20px;min-height:55px}
+ .fare-price-row>.price:not(.old) {font-size:20px}.fare-price-row>.old {font-size:11px}.discount-badge {font-size:13px}
+ .fare-controls {margin-top:12px}.fare-controls>a {font-size:14px}
+ .search-grid .date-trigger,.search-grid .passenger-trigger,.search-grid .field select {font-size:16px}
+ .payment-check {font-size:13px}.calendar {padding:18px}
+}
+@media(prefers-reduced-motion:reduce){html {scroll-behavior:auto}*,*:before,*:after {transition:none!important;animation:none!important}}
+.hotel-area .destination-photo {object-position:center 58%}
+.hotel-area .destination-copy p {max-width:440px}
+.fare-image img[src*="moscow"] {object-position:center 42%}
+.fare-image img[src*="petersburg"] {object-position:center 48%}
+@media(max-width:650px){.hotel-area .destination-copy h3 {font-size:32px}.hotel-area .destination-copy p {font-size:16px}}
+/* Bring transport tabs closer to the trust badges. */
+.search-intro {min-height:0;padding-bottom:20px}
+.search-top {min-height:0;align-items:flex-end}
+@media(max-width:650px){.search-intro {padding-bottom:18px}}
+/* Let routes breathe; reserve the strong brand color for the return offer. */
+.fare-widget {background:#fff;color:#262839;padding:0;border-radius:0;overflow:visible}
+.fare-widget .section-head p {color:#73758d}
+.fare-widget .section-head>.btn {background:#f2edff;color:#7027ed}
+.fare-card {background:#f5f5fa;border:1px solid #ece9f2}
+.fare-controls {color:#7027ed}.carousel-button {background:#f2edff;border-color:#e3daf3}
+.carousel-button:disabled {background:#f5f5fa;color:#b8b0c7;border-color:#ece9f2}
+.return-offer {padding:24px 0 44px}
+.return-offer-panel {position:relative;overflow:hidden;isolation:isolate;border-radius:32px;background:#986ff7;color:white;min-height:365px}
+.return-offer-photo {position:absolute;right:0;top:0;height:100%;width:43%;object-fit:cover;object-position:center 30%;z-index:-2}
+.return-offer-panel:before {content:'';position:absolute;inset:0 33% 0 0;background:#986ff7;border-radius:0 150px 150px 0;z-index:-1}
+.return-offer-copy {padding:32px 38px;max-width:64%}
+.offer-eyebrow {display:inline-flex;padding:5px 13px;border-radius:8px;background:#f65c00;font-size:15px;font-weight:600;margin-bottom:12px}
+.return-offer-copy h2 {font-size:36px;line-height:1.13;margin-bottom:12px;letter-spacing:-.6px}
+.return-offer-copy>p {font-size:17px;line-height:1.5;max-width:490px}
+.promo-demo {margin-top:20px}.promo-value {font-size:15px;display:block;margin-bottom:10px}
+.promo-code-row {display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.promo-code {font-size:20px;font-weight:700;letter-spacing:1px;border:1px dashed #ffffffb0;border-radius:10px;padding:10px 16px;min-height:48px}
+.promo-code-row .btn {font-size:14px;min-height:48px;padding:10px 16px}
+.promo-demo small {display:block;font-size:12px;margin-top:10px;color:#fff}
+#promoStatus {display:block;font-size:12px;margin-top:7px;max-width:430px}
+@media(max-width:650px){
+ .fare-widget {padding:0}.fare-cards {margin-right:-16px;padding-right:16px}
+ .return-offer {padding:16px 0 30px}.return-offer-panel {border-radius:24px;display:flex;flex-direction:column}
+ .return-offer-photo {position:relative;width:100%;height:180px;z-index:auto;object-position:center 25%}
+ .return-offer-panel:before {display:none}.return-offer-copy {max-width:none;padding:24px}
+ .return-offer-copy h2 {font-size:30px}.return-offer-copy>p {font-size:16px}
+ .promo-code-row {gap:8px}.promo-code {font-size:17px;padding:10px 12px}.promo-code-row .btn {font-size:13px;padding:10px 12px}
+}
+
+/* Side navigation follows the rounded lavender controls on Tutu. */
+.fare-carousel {position:relative}
+.fare-carousel .carousel-button {position:absolute;top:calc(50% - 7px);transform:translateY(-50%);z-index:2;width:56px;height:56px;border:0;background:#d0b8ff;color:#29263e;box-shadow:0 6px 24px #35215b12;cursor:pointer}
+.fare-carousel .carousel-button svg {width:24px;height:24px}
+.fare-carousel #farePrev {left:-20px}.fare-carousel #fareNext {right:-20px}
+.fare-carousel .carousel-button:hover:not(:disabled) {background:#bea0f9;box-shadow:0 6px 24px #35215b24}
+.fare-carousel .carousel-button:disabled {visibility:hidden;pointer-events:none}
+@media(max-width:650px){
+ .fare-widget .section-head>.btn {display:inline-flex;align-self:flex-start;font-size:15px}
+ .fare-carousel .carousel-button {width:48px;height:48px}
+ .fare-carousel #farePrev {left:-8px}.fare-carousel #fareNext {right:-8px}
+ .fare-carousel .fare-cards {margin-right:0;padding-right:2px}
+}
+
+/* Popover text must remain legible against its own white background. */
+.passenger-panel {color:#262839}
+.passenger-panel .passenger-copy b {display:block;color:#262839;font-size:16px;line-height:1.4}
+.passenger-panel .passenger-count {color:#262839;font-size:16px}
+.passenger-panel .passenger-copy small {color:#73758d;margin-top:3px}
+
+/* Destination cards: route first, then a clear fare group. */
+.fare-widget .section-head h2 {font-weight:650}
+.fare-card {border:0;border-radius:28px;padding:10px 10px 24px;flex:0 0 calc((100% - 48px)/4);min-width:0;width:auto}
+.fare-image {height:190px}.fare-image img {border-radius:20px}
+.fare-copy {padding:20px 12px 0}
+.fare-copy h3 {font-size:21px;line-height:1.3;min-height:55px;margin:0 0 20px}
+.fare-price-row {display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.fare-price-row>.price:not(.old) {font-size:22px;order:0}
+.fare-price-row>.discount-badge {order:1;background:#ff5b24}
+.fare-price-row>.old {order:2;flex-basis:100%;font-size:14px;margin-top:4px;color:#73758d}
+.fare-copy .route-action {font-size:14px;margin-top:20px}
+.fare-carousel .carousel-button {background:#fff;color:#262839;box-shadow:0 4px 20px #30244c22}
+.fare-carousel .carousel-button:hover:not(:disabled) {background:#f2edff}
+@media(min-width:651px) and (max-width:1100px){.fare-card {flex-basis:300px}}
+@media(max-width:650px){
+ .fare-card {flex-basis:min(300px,calc(100vw - 76px));border-radius:24px;padding:8px 8px 22px}
+ .fare-image {height:175px}.fare-image img {border-radius:18px}
+ .fare-copy {padding:18px 12px 0}.fare-copy h3 {font-size:20px;margin-bottom:18px}
+ .fare-price-row>.price:not(.old) {font-size:22px}.fare-price-row>.old {font-size:14px}
+}
+
+/* Compact mobile search, grouped into cities, dates and travellers. */
+@media(max-width:650px){
+ .search-grid {gap:0;overflow:visible}
+ .search-grid>.field {padding:14px 16px;min-height:74px;border:0}
+ .search-grid>.field.field-origin {border-radius:18px 18px 0 0;padding-right:16px;border-bottom:1px solid #e8e4ef}
+ .search-grid>.field.field-destination {border-radius:0 0 18px 18px;padding:14px 16px}
+ .search-grid>.swap {width:42px;height:42px;margin-right:14px;margin-bottom:-21px;border-radius:12px;box-shadow:0 3px 10px #2113330c;background:#fff}
+ .search-grid .field>.city-picks,.search-grid .field>.date-picks {display:none}
+ .search-grid>.field.field-outbound {margin-top:12px;border-radius:18px 0 0 18px;min-height:76px}
+ .search-grid>#returnField {margin-top:12px;border-left:1px solid #e8e4ef;border-radius:0 18px 18px 0;min-height:76px;padding:14px 16px}
+ .search-grid>.field.passenger-field {margin-top:12px;border-radius:18px;min-height:76px}
+ .search-grid>.search-btn {margin-top:12px;border-radius:18px;min-height:54px;font-size:18px;font-weight:600}
+ .search-grid .field label {font-size:13px;margin-bottom:4px}
+ .search-grid .field select,.search-grid .date-trigger,.search-grid .passenger-trigger {font-size:16px;line-height:1.4}
+ .search-grid .return-date-control {gap:3px}
+ .search-grid .clear-return {width:25px;height:28px;font-size:21px}
+}
+
+/* Swipeable trust badges on phones. */
+@media(max-width:650px){
+ .trust-badges {flex-wrap:nowrap;overflow-x:auto;max-width:none;margin-right:-16px;padding:2px 16px 6px 0;gap:8px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+ .trust-badges::-webkit-scrollbar {display:none}
+ .trust-badges>span {flex:0 0 auto;white-space:nowrap;scroll-snap-align:start}
+}
+
+/* Bold offer ribbon with a lime sticker. */
+.top-offer {border-radius:0;background:#ff8200;padding:9px 18px;gap:14px;min-height:58px;font-size:30px;font-weight:800;line-height:1.15;text-transform:uppercase;flex-wrap:wrap}
+.top-offer>span:first-child,.top-offer>span:last-child {font-size:inherit;line-height:inherit}
+.top-offer .offer-highlight {display:inline-block;background:#d8ff00;color:#ff5b24;border-radius:6px;padding:5px 14px;transform:skewX(-12deg);font-style:italic;font-weight:850}
+.offer-highlight>span {display:block;transform:skewX(12deg)}
+@media(max-width:650px){.top-offer {font-size:18px;gap:7px;padding:10px 8px;min-height:50px}.top-offer .offer-highlight {padding:4px 10px}}
+
+.calendar-modes {display:flex;gap:8px;margin-bottom:16px}.calendar-modes[hidden],#calendarDone[hidden] {display:none}
+.calendar-modes button {flex:1;border:0;border-radius:10px;padding:10px 8px;background:#f2edff;color:#7027ed;font-size:14px;min-height:44px}
+.calendar-modes button.active {background:#7027ed;color:#fff}
+.calendar .day.in-range {background:#eee5ff;color:#7027ed;border-radius:0}
+.calendar .day.range-edge {background:#7027ed;color:#fff;border-radius:10px}
+#calendarDone {width:100%;margin-top:12px}
+.flex-results {position:relative}.flex-results h2 {font-size:25px;padding-right:28px}.flex-results>p {font-size:15px;line-height:1.5;color:#73758d;margin:12px 0 20px}
+.flex-close {position:absolute;right:14px;top:14px;width:32px;height:32px;border:0;background:#f2edff;color:#7027ed;border-radius:8px;font-size:24px}
+.flex-days {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:45vh;overflow:auto}
+.flex-day {display:block;padding:12px;background:#f2edff;color:#7027ed;text-align:center;border-radius:10px;text-decoration:none;font-size:15px}.flex-day:hover {background:#e1d1fc}
+
+/* Single-line campaign ribbon. */
+.top-offer {flex-wrap:nowrap;white-space:nowrap;font-size:clamp(20px,2.5vw,32px);gap:14px}
+@media(max-width:650px){
+ .top-offer {font-size:clamp(11px,3.1vw,20px);gap:7px;padding:10px 5px;min-height:42px}
+ .top-offer .offer-highlight {padding:5px 7px}
+ html[lang="tj"] .top-offer {font-size:clamp(9px,2.5vw,16px);gap:5px}
+}
+/* Full-width navy footer, with the app QR and vertical store buttons. */
+.footer {background:#110d61;padding:40px 0 28px;color:#fff}
+.footer .footer-panel {background:transparent;border-radius:0;padding:0;color:#fff}
+.footer-panel .brand-logo {width:144px;height:auto;filter:brightness(0) saturate(100%) invert(23%) sepia(99%) saturate(5975%) hue-rotate(261deg) brightness(93%) contrast(102%);margin-bottom:42px}
+.footer-grid {grid-template-columns:1.55fr 1fr 1.1fr .95fr;gap:44px;align-items:start}
+.footer-col h4,.footer-app .app-title {font-size:19px;font-weight:600;line-height:1.3;color:#fff;margin-bottom:16px}
+.footer-col a {font-size:16px;line-height:1.5;color:#9798c1;margin:10px 0}
+.footer-app-box {display:flex;gap:16px;align-items:stretch}
+.footer-app .app-qr {width:calc(100% - 72px);height:auto;max-width:260px;aspect-ratio:1;object-fit:contain;background:#fff;border-radius:18px;padding:8px;margin:0}
+.footer-app .app-links {display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.footer-app .app-links a {width:56px;height:56px;background:#f5f5fa;border-radius:14px;flex:none}
+.footer-app .app-links img {width:56px;height:56px;object-fit:contain}
+.footer .socials {gap:8px}.footer .socials a {width:38px;height:38px;background:#fff;color:#229ed9;border-radius:11px;font-weight:700;font-size:18px}
+.footer .socials a:nth-child(2) {color:#1685ff}.footer .socials a:nth-child(3) {color:#ff3437}
+.footer-rates {border-color:#ffffff25;margin-top:34px;padding-top:24px}
+.footer-rates-head small,.footer-rates-source,.footer-rate-item span,.footer-bottom {color:#9798c1}
+.footer-bottom {justify-content:flex-start;flex-wrap:wrap;gap:14px 28px;line-height:1.5;padding-top:24px;font-size:13px}
+.footer-bottom a {color:#9798c1}
+@media(min-width:651px) and (max-width:1000px){.footer-grid {grid-template-columns:1.3fr 1fr;gap:32px}.footer-app .app-qr {max-width:260px}}
+@media(max-width:650px){
+ .footer {padding:32px 0 24px}.footer .footer-panel {padding:0;border-radius:0}
+ .footer-panel .brand-logo {width:110px;margin-bottom:28px}
+ .footer-grid {grid-template-columns:1fr 1fr;gap:28px 20px}
+ .footer-app {grid-column:1/3;order:0}.footer-col {order:1}.footer-grid .footer-col:last-child {grid-column:1/3}
+ .footer-col h4,.footer-app .app-title {font-size:17px}.footer-col a {font-size:14px}
+ .footer-app-box {display:flex;max-width:300px;gap:12px}
+ .footer-app .app-qr {width:calc(100% - 62px);max-width:238px;border-radius:16px}
+ .footer-app .app-links {flex-direction:column;gap:8px}.footer-app .app-links a,.footer-app .app-links img {width:50px;height:50px}
+ .footer-bottom {display:flex;font-size:12px;gap:10px}.footer-bottom span {margin:0}
+}
+
+.footer-app .app-qr {display:block;border:0}
+.footer .socials svg {width:23px;height:23px}
+
+/* Original purple footer color, with the updated footer layout. */
+.footer {background:#986ff7}
+.footer-panel .brand-logo {filter:brightness(0) invert(1)}
+.footer-col a,.footer-rates-head small,.footer-rates-source,.footer-rate-item span,.footer-bottom,.footer-bottom a {color:#eee6ff}
