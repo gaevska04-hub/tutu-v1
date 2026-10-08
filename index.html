@@ -467,6 +467,10 @@ body>.hotel-guest-panel.mobile-open {max-height:85dvh}
 }
 @media(min-width:651px) and (max-width:1100px){.top-plane[data-mode="hotel"]{width:185px;height:160px;top:8px;right:-10px}}
 </style>
+<style id="hotel-layout-alignment">
+@media(min-width:1101px){.top-plane[data-mode="hotel"]{top:32px;width:300px;height:230px;right:-25px}}
+@media(min-width:651px) and (max-width:1100px){.top-plane[data-mode="hotel"]{top:47px;width:235px;height:185px;right:-27px}}
+</style>
 </head><body>
 <!-- Yandex.Metrika counter -->
 <script>
@@ -813,4 +817,23 @@ qa('[data-date-field]').forEach(button=>button.onclick=()=>{let date=new Date(to
 })();
 </script><script>
 (()=>{const media=matchMedia('(max-width:650px)'),groups=[...document.querySelectorAll('.footer-group')];function layout(){groups.forEach(g=>g.open=!media.matches)}layout();media.addEventListener('change',layout);groups.forEach(g=>g.querySelector('summary').addEventListener('click',e=>{if(!media.matches)e.preventDefault()}));})();
+</script><script>
+(()=>{
+ const form=document.querySelector('#search'),hotel=document.querySelector('#hotelSearchGrid');
+ function alignSearchHeight(){
+  const hotelActive=form.classList.contains('hotel-mode');
+  form.style.minHeight='0px';
+  form.classList.remove('hotel-mode');hotel.hidden=true;
+  const transportHeight=form.getBoundingClientRect().height;
+  form.classList.add('hotel-mode');hotel.hidden=false;
+  const hotelHeight=form.getBoundingClientRect().height;
+  form.classList.toggle('hotel-mode',hotelActive);hotel.hidden=!hotelActive;
+  form.style.minHeight=Math.ceil(Math.max(transportHeight,hotelHeight))+'px';
+ }
+ document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',alignSearchHeight));
+ document.querySelector('#lang').addEventListener('change',()=>requestAnimationFrame(alignSearchHeight));
+ let width=innerWidth;window.addEventListener('resize',()=>{if(width!==innerWidth){width=innerWidth;alignSearchHeight()}});
+ window.addEventListener('load',alignSearchHeight);
+ document.fonts.ready.then(alignSearchHeight);alignSearchHeight();
+})();
 </script></body></html>
