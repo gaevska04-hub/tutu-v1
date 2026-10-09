@@ -1,53 +1,51 @@
-===== https://avia.tutu.ru/f/Dushanbe/Moscow/
-status=404 size=159464 final=https://avia.tutu.ru/f/Dushanbe/Moscow/
---- title:
-<title>Страница не найдена
---- captcha/bot markers:
---- price-like text:
---- json keys:
---- scripts with data:
-window.__AB_TESTING_CAMPAIGNS_PROMISE__
-window.__AB_TESTING_CAMPAIGNS__
-window.__PRELOADED_STATE__
-===== https://avia.tutu.ru/f/Moscow/Dushanbe/
-status=404 size=159462 final=https://avia.tutu.ru/f/Moscow/Dushanbe/
---- title:
-<title>Страница не найдена
---- captcha/bot markers:
---- price-like text:
---- json keys:
---- scripts with data:
-window.__AB_TESTING_CAMPAIGNS_PROMISE__
-window.__AB_TESTING_CAMPAIGNS__
-window.__PRELOADED_STATE__
-===== https://avia.tutu.ru/f/Dushanbe/Ekaterinburg/
-status=200 size=384981 final=https://avia.tutu.ru/f/Dushanbe/Ekaterinburg/
---- title:
-<title>Авиабилеты Душанбе - Екатеринбург от 17482 рублей на Туту
---- captcha/bot markers:
---- price-like text:
-      2 от 17482 руб
---- json keys:
-"price">15 ⁠293 ⁠₽</span></div></button></a></d
-"price">15 ⁠293 ⁠₽</span></div></button></div><
-"price">31 ⁠384 ⁠₽</span></div></button></div><
-"price">31 ⁠384 ⁠₽</span></div></button></div><
-"price">27 ⁠827 ⁠₽</span></div></button></div><
-"price">27 ⁠827 ⁠₽</span></div></button></div><
-"price">23 ⁠082 ⁠₽</span></div></button></div><
-"price">23 ⁠082 ⁠₽</span></div></button></div><
-"price">58 ⁠969 ⁠₽</span></div></button></div><
-"price">58 ⁠969 ⁠₽</span></div></button></div><
-"price">15 ⁠293 ⁠₽</span></span></span></span><
-"price">15 ⁠293 ⁠₽</span></span></span></span><
-"price">19 ⁠843 ⁠₽</span></span></span></span><
-"price">19 ⁠843 ⁠₽</span></span></span></span><
-"price">28 ⁠191 ⁠₽</span></span></span></span><
---- scripts with data:
-<script type="application/ld+json">
-<script type="application/ld+json" data-ti="schema_faq">
-<script type="application/ld+json" data-ti="schema_product">
-<script type="application/ld+json" data-ti="schema_organization">
-window.__AB_TESTING_CAMPAIGNS_PROMISE__
-window.__AB_TESTING_CAMPAIGNS__
-window.__PRELOADED_STATE__
+### links on Dushanbe-Ekaterinburg page
+href="/f/Dushanbe/Almati/"
+href="/f/Dushanbe/Baku/"
+href="/f/Dushanbe/Bishkek/"
+href="/f/Dushanbe/Chelyabinsk/"
+href="/f/Dushanbe/Dubay/"
+href="/f/Dushanbe/Ekaterinburg/?class=Y&amp;passengers=100&amp;route[0]=234-10102026-29&amp;f-carrier=Уральские+авиалинии"
+href="/f/Dushanbe/Erevan/"
+href="/f/Dushanbe/Guanchjou/"
+href="/f/Dushanbe/Hudjand/"
+href="/f/Dushanbe/Kazan/"
+href="/f/Dushanbe/Krasnodar/"
+href="/f/Dushanbe/Krasnoyarsk/"
+href="/f/Dushanbe/Kurgan/"
+href="/f/Dushanbe/Magnitogorsk/"
+href="/f/Dushanbe/Mineralnie_vodi/"
+href="/f/Dushanbe/Minsk/"
+href="/f/Dushanbe/Moskva/"
+href="/f/Dushanbe/Novosibirsk/"
+href="/f/Dushanbe/Perm/"
+href="/f/Dushanbe/Samara/"
+href="/f/Dushanbe/Sankt-peterburg/"
+href="/f/Dushanbe/Stambul/"
+href="/f/Dushanbe/Tashkent/"
+href="/f/Dushanbe/Tyumen/"
+href="/f/Dushanbe/Ufa/"
+href="/f/Ekaterinburg/Dushanbe/"
+href="https://avia.tutu.ru/f/Dushanbe/Ekaterinburg/"
+### ld+json product
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://avia.tutu.ru/","name":"Авиабилеты"}},{"@type":"ListItem","position":2,"item":{"@id":"#","name":"Душанбе — Екатеринбург авиабилеты"}},{"@type":"ListItem","position":3,"item":{"@id":"#✈️","name":"✈️"}}]}
+---
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько лететь из Душанбе в Екатеринбург?","acceptedAnswer":{"@type":"Answer","text":"Самый быстрый перелет Душанбе - Екатеринбург составляет 3&nbsp;ч&nbsp;15&nbsp;мин."}},{"@type":"Question","name":"Какие авиакомпании летают из Душанбе в Екатеринбург?","acceptedAnswer":{"@type":"Answer","text":"Из Душанбе в Екатеринбург осуществляет рейсы авиакомпания Уральские авиалинии."}},{"@type":"Question","name":"Из какого аэропорта Душанбе можно улететь в Екатеринбург?","acceptedAnswer":{"@type":"Answer","text":"Из Душанбе в Екатеринбург можно улететь из одного аэропорта - Душанбе (туда и обратно)."}},{"@type
+---
+{"@context":"https://schema.org","@type":"Product","name":"Авиабилеты Душанбе → Екатеринбург","description":"Ищите дешевые авиабилеты из Душанбе в Екатеринбург с помощью календаря низких цен и подпишитесь на уведомление о снижении цены.","offers":{"@type":"AggregateOffer","lowPrice":17482,"priceCurrency":"RUB"}}
+---
+{"@context":"https://schema.org","@type":"Organization","url":"https://www.tutu.ru/","logo":"https://cdn1.tu-tu.ru/images2/bemp/svg/logo/2023/logo_tutu_final.svg"}
+---
+### candidates
+200 Dushanbe/Moskva :: <title>Авиабилеты Душанбе - Москва от 14922 рублей на Туту
+404 Dushanbe/Moscow-Russia :: <title>Страница не найдена
+200 Moskva/Dushanbe :: <title>Авиабилеты Москва - Душанбе от 16978 рублей на Туту
+200 Dushanbe/Sankt-Peterburg :: <title>Авиабилеты Душанбе - Санкт-Петербург от 15219 рублей на Туту
+404 Hudzhand/Sankt-Peterburg :: <title>Страница не найдена
+404 Khudzhand/Sankt-Peterburg :: <title>Страница не найдена
+404 Khujand/Sankt-Peterburg :: <title>Страница не найдена
+404 Hudzhand/Moskva :: <title>Страница не найдена
+404 Khudzhand/Moskva :: <title>Страница не найдена
+404 Moskva/Hudzhand :: <title>Страница не найдена
+404 Moskva/Khudzhand :: <title>Страница не найдена
+200 Sankt-Peterburg/Dushanbe :: <title>Авиабилеты Санкт-Петербург - Душанбе от 18248 рублей на Туту
+200 Samara/Dushanbe :: <title>Авиабилеты Самара - Душанбе от 16909 рублей на Туту
