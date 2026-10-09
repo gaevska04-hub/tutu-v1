@@ -1,11 +1,14 @@
 name: probe
 on: { push: { branches: [probe-tutu] } }
+permissions: { contents: write }
 jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: probe
         run: |
+          exec > probe.txt 2>&1
           UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36'
           for u in https://avia.tutu.ru/f/Dushanbe/Moscow/ https://avia.tutu.ru/f/Moscow/Dushanbe/ https://avia.tutu.ru/f/Dushanbe/Ekaterinburg/; do
             echo "===== $u"
@@ -18,3 +21,8 @@ jobs:
             grep -o -E 'window\.__[A-Z_]+__' page.html | sort -u | head
             sleep 3
           done
+      - name: save
+        if: always()
+        run: |
+          git config user.name bot; git config user.email bot@users.noreply.github.com
+          git add -f probe.txt; git commit -m result; git push
