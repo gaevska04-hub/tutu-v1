@@ -34,6 +34,24 @@
     inner.replaceChildren(document.createTextNode(text));
   }
 
+  const PROMO_RU = 'С промокодом INTAVIATUTU';
+  function translatePromo(el) {
+    const select = document.getElementById('lang');
+    const lang = select ? select.value : 'ru';
+    let text = PROMO_RU;
+    try {
+      if (typeof translations === 'object' && translations[lang] && translations[lang][PROMO_RU]) {
+        text = translations[lang][PROMO_RU];
+      }
+    } catch (e) { /* остаётся русский текст */ }
+    el.textContent = text;
+  }
+  const langSelect = document.getElementById('lang');
+  if (langSelect) {
+    langSelect.addEventListener('change', () =>
+      list.querySelectorAll('.fare-promo-label[data-dynamic="promo"]').forEach(translatePromo));
+  }
+
   function apply(data) {
     const routes = data && data.routes;
     if (!routes || typeof routes !== 'object') return false;
@@ -51,7 +69,14 @@
       const currency = route.currency === 'TJS' ? 'TJS' : 'RUB';
       const oldEl = row.querySelector('.price.old');
       const badge = row.querySelector('.discount-badge');
-      const promoLabel = row.querySelector('.fare-promo-label');
+      let promoLabel = row.querySelector('.fare-promo-label');
+      if (!promoLabel && route.promo) {
+        promoLabel = document.createElement('small');
+        promoLabel.className = 'fare-promo-label';
+        promoLabel.dataset.dynamic = 'promo';
+        row.append(promoLabel);
+        translatePromo(promoLabel);
+      }
       const oldPrice = Number(route.old_price);
 
       setValue(current, currency, price);
