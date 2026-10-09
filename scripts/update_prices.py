@@ -1,112 +1,140 @@
 #!/usr/bin/env python3
 """
-Обновляет assets/prices.json минимальными ценами по популярным направлениям.
+Обновляет assets/prices.json минимальными ценами с tutu.ru.
 
-Источник задаётся секретом репозитория TUTU_PRICES_API_URL — шаблоном адреса
-с подстановками {from_iata}, {to_iata}, {from_id}, {to_id}, например:
-    https://api.example.tutu.ru/min-prices?from={from_iata}&to={to_iata}
-Необязательный секрет TUTU_PRICES_API_TOKEN уходит в заголовок Authorization.
+Для каждого направления открывается его страница на avia.tutu.ru
+(например https://avia.tutu.ru/f/Dushanbe/Moskva/) и берётся минимальная
+цена из разметки schema.org (AggregateOffer → lowPrice, в рублях).
+Если разметки нет — цена из заголовка страницы («… от 17482 рублей …»).
 
-Если секрета нет — скрипт ничего не меняет и завершается успешно.
-Если по маршруту не удалось получить цену — остаётся прежнее значение.
+Ничего не ломает:
+- если страница не открылась или цена выглядит странно — по этому
+  направлению остаётся прежнее значение;
+- если не получилось ни одной цены — файл не меняется.
 
-Ответ API разбирает parse_price(); подправьте её под реальный формат,
-когда разработчики Туту скажут, что отдаёт их эндпоинт.
+Для направлений с "promo": true применяется промокод INTAVIATUTU
+(15 %, но не больше 1 000 ₽): на карточке будет цена с промокодом,
+а цена tutu.ru — зачёркнутой.
 """
 import json
-import os
+import re
 import sys
+import time
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
 PRICES_FILE = Path(__file__).resolve().parent.parent / "assets" / "prices.json"
 
-IATA = {
-    "dushanbe": "DYU",
-    "khujand": "LBD",
-    "moscow": "MOW",
-    "petersburg": "LED",
-    "yekaterinburg": "SVX",
-    "samara": "KUF",
+# Как города называются в адресах avia.tutu.ru/f/<откуда>/<куда>/
+SLUGS = {
+    "dushanbe": "Dushanbe",
+    "khujand": "Hudjand",
+    "moscow": "Moskva",
+    "petersburg": "Sankt-peterburg",
+    "yekaterinburg": "Ekaterinburg",
+    "samara": "Samara",
 }
 
-# Промокод INTAVIATUTU: 15 % от стоимости, но не больше 1 000 ₽.
 PROMO_RATE = 0.15
 PROMO_MAX_RUB = 1000
+MIN_RUB, MAX_RUB = 3000, 300000  # всё, что вне диапазона, считаем ошибкой разбора
+PAUSE_SECONDS = 3                 # пауза между запросами, чтобы не нагружать сайт
+
+USER_AGENT = (
+    "Mozilla/5.0 (compatible; tutu-tj-landing-prices/1.0; "
+    "+https://gaevska04-hub.github.io/tutu-v1/)"
+)
 
 
-def parse_price(payload):
-    """Достаёт минимальную цену в рублях из ответа API. Вернуть None, если цены нет."""
-    if isinstance(payload, (int, float)):
-        return float(payload)
-    if isinstance(payload, dict):
-        for key in ("min_price", "minPrice", "price", "value"):
-            if isinstance(payload.get(key), (int, float)):
-                return float(payload[key])
-        for key in ("prices", "items", "data", "results"):
-            if key in payload:
-                return parse_price(payload[key])
-    if isinstance(payload, list):
-        found = [p for p in (parse_price(x) for x in payload) if p]
-        return min(found) if found else None
+def route_url(from_id, to_id):
+    return f"https://avia.tutu.ru/f/{SLUGS[from_id]}/{SLUGS[to_id]}/"
+
+
+def fetch_html(url):
+    req = urllib.request.Request(
+        url, headers={"User-Agent": USER_AGENT, "Accept-Language": "ru-RU,ru;q=0.9"}
+    )
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return resp.read().decode("utf-8", errors="ignore")
+
+
+def find_low_price(node):
+    if isinstance(node, dict):
+        if node.get("@type") == "AggregateOffer" and "lowPrice" in node:
+            if str(node.get("priceCurrency", "RUB")).upper() == "RUB":
+                try:
+                    return float(node["lowPrice"])
+                except (TypeError, ValueError):
+                    return None
+        for value in node.values():
+            found = find_low_price(value)
+            if found:
+                return found
+    elif isinstance(node, list):
+        for value in node:
+            found = find_low_price(value)
+            if found:
+                return found
     return None
 
 
-def fetch_price(url_template, token, from_id, to_id):
-    url = url_template.format(
-        from_iata=IATA[from_id], to_iata=IATA[to_id], from_id=from_id, to_id=to_id
-    )
-    req = urllib.request.Request(url, headers={"Accept": "application/json"})
-    if token:
-        req.add_header("Authorization", f"Bearer {token}")
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return parse_price(json.load(resp))
+def parse_price(html):
+    for block in re.findall(
+        r'<script[^>]+type="application/ld\+json"[^>]*>(.*?)</script>', html, re.S
+    ):
+        try:
+            price = find_low_price(json.loads(block))
+        except ValueError:
+            continue
+        if price:
+            return price
+    m = re.search(r"<title>[^<]*?от\s*([\d\s   ]+)\s*руб", html)
+    if m:
+        return float(re.sub(r"\D", "", m.group(1)))
+    return None
 
 
 def main():
-    url_template = os.environ.get("TUTU_PRICES_API_URL", "").strip()
-    if not url_template:
-        print("TUTU_PRICES_API_URL не задан — цены не обновляются.")
-        return 0
-    token = os.environ.get("TUTU_PRICES_API_TOKEN", "").strip()
-
     data = json.loads(PRICES_FILE.read_text(encoding="utf-8"))
     routes = data.get("routes", {})
     updated = 0
 
-    for key, route in routes.items():
+    for i, (key, route) in enumerate(routes.items()):
         from_id, to_id = key.split("-", 1)
-        if from_id not in IATA or to_id not in IATA:
-            print(f"{key}: нет кода IATA, пропускаю")
+        if from_id not in SLUGS or to_id not in SLUGS:
+            print(f"{key}: не знаю адрес на tutu.ru, пропускаю")
             continue
+        if i:
+            time.sleep(PAUSE_SECONDS)
+        url = route_url(from_id, to_id)
         try:
-            base = fetch_price(url_template, token, from_id, to_id)
-        except Exception as exc:  # сеть, формат, 4xx/5xx — оставляем старую цену
-            print(f"{key}: ошибка запроса ({exc}), оставляю прежнюю цену")
+            base = parse_price(fetch_html(url))
+        except Exception as exc:  # сеть, 404, блокировка — оставляем старую цену
+            print(f"{key}: {url} не открылась ({exc}), оставляю прежнюю цену")
             continue
-        if not base or base <= 0:
-            print(f"{key}: цены нет, оставляю прежнюю")
+        if not base or not (MIN_RUB <= base <= MAX_RUB):
+            print(f"{key}: цена не найдена или подозрительная ({base}), оставляю прежнюю")
             continue
 
         base = round(base)
         if route.get("promo"):
             discount = min(round(base * PROMO_RATE), PROMO_MAX_RUB)
-            new = {"price": base - discount, "old_price": base}
+            route.update(price=base - discount, old_price=base)
         else:
-            new = {"price": base, "old_price": None}
-        route.update(new, currency="RUB")
+            route.update(price=base, old_price=None)
+        route["currency"] = "RUB"
         updated += 1
-        print(f"{key}: {route['price']} ₽")
+        print(f"{key}: {base} ₽ на tutu.ru → на карточке {route['price']} ₽")
 
     if not updated:
         print("Ни одной цены не получено — файл не меняю.")
         return 0
 
     data["updated"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-    data["source"] = "api"
+    data["source"] = "avia.tutu.ru"
     PRICES_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Обновлено маршрутов: {updated} из {len(routes)}")
+    print(f"Обновлено направлений: {updated} из {len(routes)}")
     return 0
 
 

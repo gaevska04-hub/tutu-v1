@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "17 */4 * * *"   # каждые 4 часа
   workflow_dispatch: {}       # ручной запуск из вкладки Actions
+  push:                       # сразу после изменения самого скрипта
+    branches: [main]
+    paths:
+      - scripts/update_prices.py
+      - .github/workflows/update-prices.yml
 
 permissions:
   contents: write
@@ -23,9 +28,6 @@ jobs:
           python-version: "3.12"
 
       - name: Получить цены
-        env:
-          TUTU_PRICES_API_URL: ${{ secrets.TUTU_PRICES_API_URL }}
-          TUTU_PRICES_API_TOKEN: ${{ secrets.TUTU_PRICES_API_TOKEN }}
         run: python scripts/update_prices.py
 
       - name: Сохранить, если цены изменились
@@ -38,4 +40,5 @@ jobs:
           git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
           git add assets/prices.json
           git commit -m "Обновить цены популярных направлений"
+          git pull --rebase --quiet origin main
           git push
