@@ -10,16 +10,21 @@ jobs:
         run: |
           exec > probe.txt 2>&1
           UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36'
-          for u in https://avia.tutu.ru/f/Dushanbe/Moscow/ https://avia.tutu.ru/f/Moscow/Dushanbe/ https://avia.tutu.ru/f/Dushanbe/Ekaterinburg/; do
-            echo "===== $u"
-            curl -sS -L -m 30 -A "$UA" -H 'Accept-Language: ru-RU,ru;q=0.9' -o page.html -w 'status=%{http_code} size=%{size_download} final=%{url_effective}\n' "$u" || true
-            echo "--- title:"; grep -o '<title>[^<]*' page.html | head -2
-            echo "--- captcha/bot markers:"; grep -o -i 'captcha\|smartcaptcha\|qrator\|ddos-guard\|access denied\|робот' page.html | sort | uniq -c | head
-            echo "--- price-like text:"; grep -o -E '(от |от&nbsp;)?[0-9]{1,3}([  \xC2\xA0]?[0-9]{3})+ ?(₽|&#8381;|руб)' page.html | sort | uniq -c | sort -rn | head -15
-            echo "--- json keys:"; grep -o -E '"(minPrice|min_price|price|priceValue|amount|lowPrice|offers)"[^,}]{0,40}' page.html | head -15
-            echo "--- scripts with data:"; grep -o -E '<script[^>]*(application/(ld\+)?json|__NEXT_DATA__|__INITIAL_STATE__)[^>]*>' page.html | head -5
-            grep -o -E 'window\.__[A-Z_]+__' page.html | sort -u | head
-            sleep 3
+          get(){ curl -sS -L -m 30 -A "$UA" -H 'Accept-Language: ru-RU,ru;q=0.9' -o page.html -w '%{http_code}' "$1"; }
+          echo "### links on Dushanbe-Ekaterinburg page"
+          get https://avia.tutu.ru/f/Dushanbe/Ekaterinburg/ >/dev/null
+          grep -o 'href="[^"]*/f/[^"]*"' page.html | sort -u | grep -i 'mosk\|mosc\|peter\|hud\|khu\|hoj\|khoj\|dush' | head -40
+          echo "### ld+json product"
+          python3 - <<'PY'
+          import re
+          s=open('page.html',encoding='utf-8',errors='ignore').read()
+          for m in re.finditer(r'<script type="application/ld\+json"[^>]*>(.*?)</script>',s,re.S): print(m.group(1)[:700]); print('---')
+          PY
+          echo "### candidates"
+          for path in Dushanbe/Moskva Dushanbe/Moscow-Russia Moskva/Dushanbe Dushanbe/Sankt-Peterburg Hudzhand/Sankt-Peterburg Khudzhand/Sankt-Peterburg Khujand/Sankt-Peterburg Hudzhand/Moskva Khudzhand/Moskva Moskva/Hudzhand Moskva/Khudzhand Sankt-Peterburg/Dushanbe Samara/Dushanbe; do
+            code=$(get "https://avia.tutu.ru/f/$path/")
+            echo "$code $path :: $(grep -o '<title>[^<]*' page.html | head -1)"
+            sleep 2
           done
       - name: save
         if: always()
