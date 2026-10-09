@@ -1,0 +1,15 @@
+{
+  "updated": null,
+  "source": "manual",
+  "routes": {
+    "dushanbe-moscow":         { "price": 2160,  "old_price": 2484,  "currency": "TJS", "promo": false },
+    "khujand-petersburg":      { "price": 2457,  "old_price": 2826,  "currency": "TJS", "promo": false },
+    "dushanbe-yekaterinburg":  { "price": 16482, "old_price": 17482, "currency": "RUB", "promo": true },
+    "dushanbe-samara":         { "price": 12929, "old_price": 13929, "currency": "RUB", "promo": true },
+    "moscow-dushanbe":         { "price": 2160,  "old_price": 2484,  "currency": "TJS", "promo": false },
+    "petersburg-dushanbe":     { "price": 2457,  "old_price": 2826,  "currency": "TJS", "promo": false },
+    "moscow-khujand":          { "price": 2457,  "old_price": 2826,  "currency": "TJS", "promo": false },
+    "yekaterinburg-dushanbe":  { "price": 15517, "old_price": 16517, "currency": "RUB", "promo": true },
+    "samara-dushanbe":         { "price": 14822, "old_price": 15822, "currency": "RUB", "promo": true }
+  }
+}
