@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-09T13:52:34+00:00",
+  "updated": "2026-10-09T16:33:25+00:00",
   "source": "avia.tutu.ru",
   "routes": {
     "dushanbe-moscow": {
-      "price": 13922,
-      "old_price": 14922,
+      "price": 13783,
+      "old_price": 14783,
       "currency": "RUB",
       "promo": true
     },
@@ -15,8 +15,8 @@
       "promo": true
     },
     "dushanbe-yekaterinburg": {
-      "price": 16482,
-      "old_price": 17482,
+      "price": 15581,
+      "old_price": 16581,
       "currency": "RUB",
       "promo": true
     },
@@ -27,8 +27,8 @@
       "promo": true
     },
     "moscow-dushanbe": {
-      "price": 15978,
-      "old_price": 16978,
+      "price": 16030,
+      "old_price": 17030,
       "currency": "RUB",
       "promo": true
     },
