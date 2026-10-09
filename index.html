@@ -519,7 +519,13 @@ html:not([lang="ru"]) .care-247{background:#d4ff23;color:#111}
 @media(max-width:650px){
  .care-millions,html:not([lang="ru"]) .care-millions{top:min(26%,calc(100% - 24cqw - 12px))}
 }
-</style></head><body>
+</style><style>
+/* Lighter lettering for the two mobile trust stickers. */
+@media(max-width:650px){
+ .care-millions,.care-247,html:not([lang="ru"]) .care-millions,html:not([lang="ru"]) .care-247{font-weight:600}
+}
+</style>
+</head><body>
 <!-- Yandex.Metrika counter -->
 <script>
 (function(m,e,t,r,i,k,a){
