@@ -1,15 +1,60 @@
 {
-  "updated": null,
-  "source": "manual",
+  "updated": "2026-10-09T13:52:34+00:00",
+  "source": "avia.tutu.ru",
   "routes": {
-    "dushanbe-moscow":         { "price": 2160,  "old_price": 2484,  "currency": "TJS", "promo": false },
-    "khujand-petersburg":      { "price": 2457,  "old_price": 2826,  "currency": "TJS", "promo": false },
-    "dushanbe-yekaterinburg":  { "price": 16482, "old_price": 17482, "currency": "RUB", "promo": true },
-    "dushanbe-samara":         { "price": 12929, "old_price": 13929, "currency": "RUB", "promo": true },
-    "moscow-dushanbe":         { "price": 2160,  "old_price": 2484,  "currency": "TJS", "promo": false },
-    "petersburg-dushanbe":     { "price": 2457,  "old_price": 2826,  "currency": "TJS", "promo": false },
-    "moscow-khujand":          { "price": 2457,  "old_price": 2826,  "currency": "TJS", "promo": false },
-    "yekaterinburg-dushanbe":  { "price": 15517, "old_price": 16517, "currency": "RUB", "promo": true },
-    "samara-dushanbe":         { "price": 14822, "old_price": 15822, "currency": "RUB", "promo": true }
+    "dushanbe-moscow": {
+      "price": 14922,
+      "old_price": null,
+      "currency": "RUB",
+      "promo": false
+    },
+    "khujand-petersburg": {
+      "price": 18287,
+      "old_price": null,
+      "currency": "RUB",
+      "promo": false
+    },
+    "dushanbe-yekaterinburg": {
+      "price": 16482,
+      "old_price": 17482,
+      "currency": "RUB",
+      "promo": true
+    },
+    "dushanbe-samara": {
+      "price": 12929,
+      "old_price": 13929,
+      "currency": "RUB",
+      "promo": true
+    },
+    "moscow-dushanbe": {
+      "price": 16978,
+      "old_price": null,
+      "currency": "RUB",
+      "promo": false
+    },
+    "petersburg-dushanbe": {
+      "price": 18248,
+      "old_price": null,
+      "currency": "RUB",
+      "promo": false
+    },
+    "moscow-khujand": {
+      "price": 13574,
+      "old_price": null,
+      "currency": "RUB",
+      "promo": false
+    },
+    "yekaterinburg-dushanbe": {
+      "price": 15551,
+      "old_price": 16551,
+      "currency": "RUB",
+      "promo": true
+    },
+    "samara-dushanbe": {
+      "price": 15909,
+      "old_price": 16909,
+      "currency": "RUB",
+      "promo": true
+    }
   }
 }
