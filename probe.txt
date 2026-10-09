@@ -1,0 +1,53 @@
+===== https://avia.tutu.ru/f/Dushanbe/Moscow/
+status=404 size=159464 final=https://avia.tutu.ru/f/Dushanbe/Moscow/
+--- title:
+<title>Страница не найдена
+--- captcha/bot markers:
+--- price-like text:
+--- json keys:
+--- scripts with data:
+window.__AB_TESTING_CAMPAIGNS_PROMISE__
+window.__AB_TESTING_CAMPAIGNS__
+window.__PRELOADED_STATE__
+===== https://avia.tutu.ru/f/Moscow/Dushanbe/
+status=404 size=159462 final=https://avia.tutu.ru/f/Moscow/Dushanbe/
+--- title:
+<title>Страница не найдена
+--- captcha/bot markers:
+--- price-like text:
+--- json keys:
+--- scripts with data:
+window.__AB_TESTING_CAMPAIGNS_PROMISE__
+window.__AB_TESTING_CAMPAIGNS__
+window.__PRELOADED_STATE__
+===== https://avia.tutu.ru/f/Dushanbe/Ekaterinburg/
+status=200 size=384981 final=https://avia.tutu.ru/f/Dushanbe/Ekaterinburg/
+--- title:
+<title>Авиабилеты Душанбе - Екатеринбург от 17482 рублей на Туту
+--- captcha/bot markers:
+--- price-like text:
+      2 от 17482 руб
+--- json keys:
+"price">15 ⁠293 ⁠₽</span></div></button></a></d
+"price">15 ⁠293 ⁠₽</span></div></button></div><
+"price">31 ⁠384 ⁠₽</span></div></button></div><
+"price">31 ⁠384 ⁠₽</span></div></button></div><
+"price">27 ⁠827 ⁠₽</span></div></button></div><
+"price">27 ⁠827 ⁠₽</span></div></button></div><
+"price">23 ⁠082 ⁠₽</span></div></button></div><
+"price">23 ⁠082 ⁠₽</span></div></button></div><
+"price">58 ⁠969 ⁠₽</span></div></button></div><
+"price">58 ⁠969 ⁠₽</span></div></button></div><
+"price">15 ⁠293 ⁠₽</span></span></span></span><
+"price">15 ⁠293 ⁠₽</span></span></span></span><
+"price">19 ⁠843 ⁠₽</span></span></span></span><
+"price">19 ⁠843 ⁠₽</span></span></span></span><
+"price">28 ⁠191 ⁠₽</span></span></span></span><
+--- scripts with data:
+<script type="application/ld+json">
+<script type="application/ld+json" data-ti="schema_faq">
+<script type="application/ld+json" data-ti="schema_product">
+<script type="application/ld+json" data-ti="schema_organization">
+window.__AB_TESTING_CAMPAIGNS_PROMISE__
+window.__AB_TESTING_CAMPAIGNS__
+window.__PRELOADED_STATE__
