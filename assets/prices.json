@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-17T22:21:03+00:00",
+  "updated": "2026-10-18T04:36:48+00:00",
   "source": "avia.tutu.ru",
   "routes": {
     "dushanbe-moscow": {
-      "price": 13753,
-      "old_price": 14753,
+      "price": 13616,
+      "old_price": 14616,
       "currency": "RUB",
       "promo": true
     },
@@ -21,8 +21,8 @@
       "promo": true
     },
     "dushanbe-samara": {
-      "price": 12832,
-      "old_price": 13832,
+      "price": 12820,
+      "old_price": 13820,
       "currency": "RUB",
       "promo": true
     },
@@ -51,8 +51,8 @@
       "promo": true
     },
     "samara-dushanbe": {
-      "price": 14707,
-      "old_price": 15707,
+      "price": 14869,
+      "old_price": 15869,
       "currency": "RUB",
       "promo": true
     }
