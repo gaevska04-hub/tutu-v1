@@ -691,6 +691,26 @@ html:not([lang="ru"]) .care-247{background:#d4ff23;color:#111}
 #directions .fare-card .fare-copy .route-action{min-height:24px;margin-top:12px;font-size:14px;line-height:1.4}
 @media(max-width:650px){#directions .fare-card .fare-image{height:140px}#directions .fare-card{padding-bottom:14px}}
 </style>
+<style>
+/* Original supplied Union.svg forms the mobile banner surface. Text is not masked. */
+@media(max-width:650px){
+ .return-offer-panel,.hotel-area .destination{background:transparent;isolation:isolate}
+ .return-offer-panel .return-offer-copy,
+ .hotel-area .destination-copy{position:relative;isolation:isolate;max-width:none;width:100%;margin-top:-20px;border-radius:0;background:transparent;padding:24px 34% 24px 20px;z-index:2}
+ .return-offer-panel .return-offer-copy::before,
+ .hotel-area .destination-copy::before{content:'';display:block;position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTk3IiBoZWlnaHQ9IjIyMiIgdmlld0JveD0iMCAwIDU5NyAyMjIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik00ODAgMEM1OTIuODc4IDkuNjEzOTllLTA1IDYxMS41ODkgMTMuNTQzNCA1ODUuOTQ1IDc2Ljk2MTlMNTU5LjE1MyAxNDMuMjI2QzUzMy4xOTcgMjA3LjQzMSA1MDMuMTYxIDIyMS4yNDEgMzg5LjEwMiAyMjEuMjQxSDBWMEg0ODBaIiBmaWxsPSIjQTE4MUZGIi8+Cjwvc3ZnPgo=");background-size:100% 100%;background-position:left top;background-repeat:no-repeat;border-radius:0;transform:none;-webkit-mask:none;mask:none}
+ .return-offer-panel::before{display:none}
+ .hotel-area .destination-shape{display:none!important}
+ .return-offer-panel .return-offer-copy h2,
+ .hotel-area .destination-copy h2{font-size:26px;line-height:1.15;max-width:none}
+ .return-offer-panel .return-offer-copy>p,
+ .hotel-area .destination-copy>p{font-size:16px;line-height:1.4;max-width:none}
+ .return-offer-panel .promo-code-row{max-width:100%}
+ .return-offer-panel .promo-copy{width:100%;min-width:0;max-width:100%;justify-content:center;font-size:clamp(12px,3.8vw,16px);padding:10px 8px;gap:7px}
+ .return-offer-panel .promo-copy svg{width:20px;height:20px;flex:none}
+ .hotel-area .hotel-banner-cta{min-width:0;width:100%;font-size:14px;padding:12px 8px;white-space:normal;line-height:1.3}
+}
+</style>
 </head><body>
 <!-- Yandex.Metrika counter -->
 <script>
