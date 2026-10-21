@@ -681,6 +681,16 @@ html:not([lang="ru"]) .care-247{background:#d4ff23;color:#111}
 #directions .fare-card .fare-price-row>.old,
 #directions .fare-card .fare-price-row>:not(.price){display:none!important}
 </style>
+<style>
+/* Shorter destination cards, with consistent two-line route alignment. */
+#directions .fare-card{padding:8px 8px 16px}
+#directions .fare-card .fare-image{height:150px}
+#directions .fare-card .fare-copy{padding:12px 10px 0}
+#directions .fare-card .fare-copy h3{font-size:20px;line-height:1.2;min-height:48px;margin:0 0 10px}
+#directions .fare-card .fare-price-row{min-height:24px;margin:0;line-height:1.2}
+#directions .fare-card .fare-copy .route-action{min-height:24px;margin-top:12px;font-size:14px;line-height:1.4}
+@media(max-width:650px){#directions .fare-card .fare-image{height:140px}#directions .fare-card{padding-bottom:14px}}
+</style>
 </head><body>
 <!-- Yandex.Metrika counter -->
 <script>
