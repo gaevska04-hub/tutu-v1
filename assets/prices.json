@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23T04:52:36+00:00",
+  "updated": "2026-10-23T13:28:49+00:00",
   "source": "avia.tutu.ru",
   "routes": {
     "dushanbe-moscow": {
@@ -9,8 +9,8 @@
       "promo": true
     },
     "khujand-petersburg": {
-      "price": 12781,
-      "old_price": 13781,
+      "price": 12486,
+      "old_price": 13486,
       "currency": "RUB",
       "promo": true
     },
@@ -33,8 +33,8 @@
       "promo": true
     },
     "petersburg-dushanbe": {
-      "price": 15832,
-      "old_price": 16832,
+      "price": 14335,
+      "old_price": 15335,
       "currency": "RUB",
       "promo": true
     },
