@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-29T15:15:16+00:00",
+  "updated": "2026-10-29T21:08:52+00:00",
   "source": "avia.tutu.ru",
   "routes": {
     "dushanbe-moscow": {
-      "price": 12690,
-      "old_price": 13690,
+      "price": 12892,
+      "old_price": 13892,
       "currency": "RUB",
       "promo": true
     },
